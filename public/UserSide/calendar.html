@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum - Calendar View</title>
+        <link rel="stylesheet" href="css/sidebar.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </div>
+            <span class="logo-text">MOMENTUM</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="nav-icon">📊</span><span>Dashboard</span></a></li>
+            <li class="nav-item"><a href="myhabit.html" class="nav-link"><span class="nav-icon">☑️</span><span>Habits</span></a></li>
+            <li class="nav-item"><a href="calendar.html" class="nav-link active"><span class="nav-icon">📅</span><span>Calendar</span></a></li>
+            <li class="nav-item"><a href="settings.html" class="nav-link"><span class="nav-icon">⚙️</span><span>Settings</span></a></li>
+        </ul>
+
+        <div class="user-profile">
+            <div class="user-avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23c84e52'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.35em' fill='white' font-size='40' font-family='Arial' font-weight='bold'%3EJD%3C/text%3E%3C/svg%3E" alt="John Doe">
+            </div>
+            <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <div class="user-role">Student</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Calendar View</h1>
+                <p>Track your daily habit streaks and progress</p>
+            </div>
+            <div class="header-actions">
+                
+                <div class="action-item-wrapper">
+                    <button class="icon-btn" id="searchBtn" title="Search">🔍</button>
+                    <div class="popover search-popover" id="searchPopover">
+                        <input type="text" placeholder="Search habits, dates, or settings..." id="searchInput">
+                        <div class="search-results">Try searching for "reading" or "December".</div>
+                    </div>
+                </div>
+
+                <div class="action-item-wrapper">
+                    <button class="icon-btn" id="notificationBtn" title="Notifications">🔔</button>
+                    <div class="popover notification-popover" id="notificationPopover">
+                        <div class="notification-header">
+                            <h4>Notifications</h4>
+                            <a href="#" style="font-size:12px; color:#c84e52; text-decoration:none;">Mark All Read</a>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item">
+                                <span class="notif-icon">🔥</span>
+                                <div class="notif-text">
+                                    <p>**3-day streak** for Meditation! Keep it up.</p>
+                                    <div class="notif-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <span class="notif-icon">⚠️</span>
+                                <div class="notif-text">
+                                    <p>Don't forget to complete your **Water Intake** habit today.</p>
+                                    <div class="notif-time">Just now</div>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <span class="notif-icon">🎉</span>
+                                <div class="notif-text">
+                                    <p>**New Feature:** Calendar View is updated!</p>
+                                    <div class="notif-time">Yesterday</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <span class="date-text" id="headerDate"></span>
+            </div>
+        </header>
+
+        <div class="calendar-content">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="month-navigation">
+                        <button class="nav-btn" id="prevMonth" title="Previous Month">‹</button>
+                        <h2 class="current-month" id="currentMonth"></h2>
+                        <button class="nav-btn" id="nextMonth" title="Next Month">›</button>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="view-btn" data-view="week">Week</button>
+                        <button class="view-btn active" data-view="month">Month</button>
+                        <button class="view-btn" data-view="year">Year</button>
+                    </div>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid">
+                    <div class="calendar-day-header">Sun</div>
+                    <div class="calendar-day-header">Mon</div>
+                    <div class="calendar-day-header">Tue</div>
+                    <div class="calendar-day-header">Wed</div>
+                    <div class="calendar-day-header">Thu</div>
+                    <div class="calendar-day-header">Fri</div>
+                    <div class="calendar-day-header">Sat</div>
+                    </div>
+            </div>
+
+            <div class="legend-section">
+                <h3 class="legend-title">Active Habits Key</h3>
+                <div class="legend-items">
+                    <div class="legend-item" data-habit="exercise" tabIndex="0">
+                        <div class="legend-dot exercise"></div>
+                        <span class="legend-label">Exercise (3/week)</span>
+                    </div>
+                    <div class="legend-item" data-habit="reading" tabIndex="0">
+                        <div class="legend-dot reading"></div>
+                        <span class="legend-label">Reading (Daily)</span>
+                    </div>
+                    <div class="legend-item" data-habit="meditation" tabIndex="0">
+                        <div class="legend-dot meditation"></div>
+                        <span class="legend-label">Meditation (4/week)</span>
+                    </div>
+                    <div class="legend-item" data-habit="water" tabIndex="0">
+                        <div class="legend-dot water"></div>
+                        <span class="legend-label">Water Intake (Daily)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup-overlay" id="popupOverlay"></div>
+        <div class="day-detail-popup" id="dayDetailPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+            <div class="popup-header">
+                <h3 class="popup-title" id="popupTitle"></h3>
+                <button class="close-popup" id="closePopup" title="Close (Escape)">×</button>
+            </div>
+            <div class="popup-habits" id="popupHabits">
+                </div>
+        </div>
+    </main>
+
+    <script src="js/calendar.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+.header {
+            background: white;
+            padding: 20px 32px;
+            border-bottom: 1px solid #e8e8e8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Add position relative to contain absolute positioned popovers */
+            position: relative; 
+        }
+
+        .header-title h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+
+        .header-title p {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        /* New Wrapper for Positioned Popover */
+        .action-item-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: #f5f5f5;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #666;
+            flex-shrink: 0; /* Important for responsiveness */
+        }
+
+        .icon-btn:hover, .icon-btn.active-btn {
+            background: #e8e8e8;
+            color: #333;
+        }

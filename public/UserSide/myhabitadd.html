@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum - Add New Habit</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/myhabitadd.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </div>
+            <span class="logo-text">MOMENTUM</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="myhabit.html" class="nav-link active">
+                    <span class="nav-icon">☑️</span>
+                    <span>Habits</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="calendar.html" class="nav-link">
+                    <span class="nav-icon">📅</span>
+                    <span>Calendar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="user-profile">
+            <div class="user-avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23e8744f'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.35em' fill='white' font-size='40' font-family='Arial' font-weight='bold'%3EJD%3C/text%3E%3C/svg%3E" alt="John Doe">
+            </div>
+            <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <div class="user-role">Student</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Add Habits</h1>
+                <p>Add update to your habits</p>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="search-icon">🔍</button>
+                <button class="icon-btn" id="notify-icon">🔔</button>
+                <span class="date-text" id="currentDate">Tuesday, September 27, 2025</span>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <div class="details-section">
+                <div class="section-header">
+                    <h1 class="section-title">Add New Habit</h1>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Habit Title</label>
+                    <input type="text" class="form-input" id="habitTitle" placeholder="e.g., Morning Meditation">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" id="habitDesc" placeholder="Describe your habit and why it's important to you..."></textarea>
+                </div>
+
+                <div class="notification-section">
+                    <div class="notification-header">
+                        <div class="notification-icon">🔔</div>
+                        <div class="notification-content">
+                            <div class="notification-title">Push Notifications</div>
+                            <div class="notification-text">Get reminder when it's time for your habit</div>
+                        </div>
+                        <label class="notification-toggle">
+                            <input type="checkbox" id="notifToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="notification-time">
+                        ⏰ Daily at 7:00 AM
+                    </div>
+                </div>
+
+                <div class="notes-section">
+                    <div class="notes-header">
+                        <h2 class="notes-title">Quick Notes (Optional)</h2>
+                        <button class="add-note-btn" id="addNoteBtn">+</button>
+                    </div>
+
+                    <div class="note-input-area" id="noteInputArea" style="display: none;">
+                        <textarea class="note-textarea" id="noteInput" placeholder="What's on your mind?"></textarea>
+                        <div class="note-toolbar">
+                            <div class="toolbar-buttons">
+                                <button class="toolbar-btn">B</button>
+                                <button class="toolbar-btn">I</button>
+                                <button class="toolbar-btn">≡</button>
+                            </div>
+                            <button class="save-note-btn" id="saveNoteBtn">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="notes-list" id="notesList">
+                        <!-- Notes will be added here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <div class="days-selector">
+                    <div class="form-label">Target Days</div>
+                    <div class="days-grid" id="daysGrid">
+                        <div class="day-circle active" data-day="Mon">
+                            <span class="day-initial">M</span>
+                        </div>
+                        <div class="day-circle active" data-day="Tue">
+                            <span class="day-initial">T</span>
+                        </div>
+                        <div class="day-circle active" data-day="Wed">
+                            <span class="day-initial">W</span>
+                        </div>
+                        <div class="day-circle active" data-day="Thu">
+                            <span class="day-initial">T</span>
+                        </div>
+                        <div class="day-circle active" data-day="Fri">
+                            <span class="day-initial">F</span>
+                        </div>
+                        <div class="day-circle inactive" data-day="Sat">
+                            <span class="day-initial">S</span>
+                        </div>
+                        <div class="day-circle inactive" data-day="Sun">
+                            <span class="day-initial">S</span>
+                        </div>
+                    </div>
+                    <div class="day-label" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; font-size: 10px; color: #999;">
+                        <span style="text-align: center;">Mon</span>
+                        <span style="text-align: center;">Tue</span>
+                        <span style="text-align: center;">Wed</span>
+                        <span style="text-align: center;">Thu</span>
+                        <span style="text-align: center;">Fri</span>
+                        <span style="text-align: center;">Sat</span>
+                        <span style="text-align: center;">Sun</span>
+                    </div>
+                    <div class="days-info">5 days per week</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="save-changes-btn" id="addHabitBtn">Add Habit</button>
+    </main>
+    <script src="js/myhabitadd.js"></script>
+</body>
+</html>

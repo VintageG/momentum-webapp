@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Momentum — Create Account</title>
+  <link rel="stylesheet" href="css/signup.css" />
+</head>
+<body>
+  <div class="bg-rings" aria-hidden="true"></div>
+
+  <div class="container" role="main">
+    <section class="promo" aria-label="Marketing">
+      <div class="logo">
+        <div class="brand-square">M</div>
+        <div style="color:rgba(255,255,255,0.95);font-weight:700">Momentum</div>
+      </div>
+
+      <h1>Build Better Habits, Track<br/>Your Progress</h1>
+      <p class="lead">Join thousands of users who transformed their lives through consistent habit tracking and progress-focused features.</p>
+
+      <ul>
+        <li><span class="dot">✓</span> Daily habit tracking & reminders</li>
+        <li><span class="dot">✓</span> Visual progress analytics</li>
+        <li><span class="dot">✓</span> Social accountability features</li>
+      </ul>
+    </section>
+
+    <aside class="card" aria-label="Create Account">
+      <div class="brand">
+        <div class="brand-square" style="width:30px;height:30px;font-size:13px">M</div>
+      </div>
+
+      <h2>Create Account</h2>
+      <p class="subtitle">Start your habit-building journey today</p>
+
+      <form id="signupForm" novalidate autocomplete="off">
+        <div class="form-grid" role="group" aria-label="Name and email">
+          <div>
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" placeholder="John" value="">
+          </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" placeholder="Doe" value="">
+          </div>
+
+          <div class="full-row">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="john@example.com" value="">
+          </div>
+
+          <div class="full-row pw-row">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Create a strong password" aria-describedby="pwHelp">
+            <button type="button" class="pw-toggle" id="togglePw" aria-pressed="false" title="Show password">Show</button>
+            <div id="pwHelp" style="font-size:12px;color:var(--muted);margin-top:6px">Password should be at least 8 characters long</div>
+          </div>
+        </div>
+
+        <div class="terms">
+          <input type="checkbox" id="agree" name="agree" aria-label="Agree to terms">
+          <label for="agree" style="margin:0;font-size:13px;color:#444">I agree to the <a href="#" style="color:var(--accent);text-decoration:none">Terms of Service</a> and <a href="#" style="color:var(--accent);text-decoration:none">Privacy Policy</a></label>
+        </div>
+
+        <div>
+  <button class="btn btn-primary" id="createBtn" type="button" onclick="window.location.href='signin.html'">
+    Create Account
+  </button>
+</div>
+
+        
+        <div id="message" class="msg" role="status" aria-live="polite"></div>
+
+        <div class="or-row" aria-hidden="true" style="margin-top:10px">
+          <div class="line"></div><div>Or continue with</div><div class="line"></div>
+        </div>
+
+        <div class="socials" aria-hidden="true">
+          <button type="button" class="social-btn" id="googleBtn">G Google</button>
+          <button type="button" class="social-btn" id="appleBtn"> Apple</button>
+        </div>
+
+        <div class="signin">
+          Already have an account? <a href="signin.html">Sign in here</a>
+        </div>
+      </form>
+    </aside>
+  </div>
+
+  <script src="js/signup.js"></script>
+</body>
+</html>

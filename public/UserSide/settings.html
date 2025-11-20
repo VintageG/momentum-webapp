@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum - Settings</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </div>
+            <span class="logo-text">MOMENTUM</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="myhabit.html" class="nav-link">
+                    <span class="nav-icon">☑️</span>
+                    <span>Habits</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="calendar.html" class="nav-link">
+                    <span class="nav-icon">📅</span>
+                    <span>Calendar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="settings.html" class="nav-link active">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="user-profile">
+            <div class="user-avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23e8744f'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.35em' fill='white' font-size='40' font-family='Arial' font-weight='bold'%3EJD%3C/text%3E%3C/svg%3E" alt="John Doe">
+            </div>
+            <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <div class="user-role">Student</div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="main-content">
+    
+        <div class="search-overlay" id="search-overlay">
+            <div class="search-input-container">
+                <input type="text" id="search-input" placeholder="Search settings, habits, or help..." onkeyup="filterResults()">
+                <button class="close-search-btn" onclick="toggleSearch(false)">&times;</button>
+            </div>
+            <div class="search-results" id="search-results">
+                <p>Start typing to see results...</p>
+            </div>
+        </div>
+
+        <div class="notification-panel" id="notification-panel">
+            <div class="notification-header">
+                <h3>Notifications</h3>
+                <button class="icon-btn" style="background: none;" onclick="toggleNotifications(false)">&times;</button>
+            </div>
+            <div class="notification-list-container">
+                <div class="notification-item unread">
+                    <p>🔥 **You hit a 7-Day Streak** on 'Daily Reading'!</p>
+                    <small>5 minutes ago</small>
+                </div>
+                <div class="notification-item unread">
+                    <p>🔔 **Reminder:** Time to do your 'Morning Workout'.</p>
+                    <small>1 hour ago</small>
+                </div>
+                <div class="notification-item">
+                    <p>📅 **New Feature:** Habit Calendar is now live.</p>
+                    <small>Yesterday</small>
+                </div>
+                <div class="notification-item">
+                    <p>📈 **Weekly Report** is ready for review.</p>
+                    <small>2 days ago</small>
+                </div>
+                <div class="notification-item">
+                    <p>🔑 **Password changed** successfully.</p>
+                    <small>3 days ago</small>
+                </div>
+                <div class="notification-item">
+                    <p>⭐ **Welcome** to Momentum!</p>
+                    <small>1 week ago</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="privacy-screen">
+            <div class="header">
+                <div>
+                    <div class="header-title">Settings</div>
+                    <div class="header-subtitle">Manage your account and app preferences</div>
+                </div>
+                <div class="header-icons">
+                    <button class="icon-btn" onclick="toggleSearch(true)">🔍</button>
+                    <button class="icon-btn has-notifications" onclick="toggleNotifications(true)">🔔</button>
+                    <span class="date-text">Tuesday, September 27, 2025</span>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-screen="profile-screen" onclick="showScreen('profile-screen', this)">Profile</div>
+                <div class="tab" data-screen="notifications-screen" onclick="showScreen('notifications-screen', this)">Notifications</div>
+                <div class="tab" data-screen="privacy-screen" onclick="showScreen('privacy-screen', this)">Privacy</div>
+            </div>
+
+            <div class="content">
+                <div class="section">
+                    <div class="section-header">
+                        Lock Account Security
+                    </div>
+                    
+                    <div class="security-item">
+                        <div class="security-info">
+                            <h3>Two-Factor Authentication</h3>
+                            <p>Add an extra layer of security to your account</p>
+                        </div>
+                        <button class="btn btn-primary">Enable 2FA</button>
+                    </div>
+
+                    <div class="security-item">
+                        <div class="security-info">
+                            <h3>Session Management</h3>
+                            <p>View and manage active sessions across devices</p>
+                        </div>
+                        <button class="btn btn-secondary">Manage Sessions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="password-screen">
+            <div class="header">
+                <div>
+                    <div class="header-title">Change Password</div>
+                    <div class="header-subtitle">Change your password here</div>
+                </div>
+                <div class="header-icons">
+                    <button class="icon-btn" onclick="toggleSearch(true)">🔍</button>
+                    <button class="icon-btn has-notifications" onclick="toggleNotifications(true)">🔔</button>
+                    <span class="date-text">Tuesday, September 27, 2025</span>
+                </div>
+            </div>
+
+            <div class="content">
+                <button class="back-btn" onclick="showScreen('profile-screen', document.querySelector('.tabs .tab[data-screen=\'profile-screen\']'))">
+                    ← Back
+                </button>
+
+                <div class="section" style="max-width: 600px;">
+                    <div class="form-group">
+                        <label class="form-label">Old Password</label>
+                        <input type="password" class="form-input" placeholder="Enter password">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">New Password</label>
+                        <input type="password" class="form-input" placeholder="Enter password">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-input" placeholder="Confirm password">
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" onclick="showScreen('profile-screen', document.querySelector('.tabs .tab[data-screen=\'profile-screen\']'))">Cancel</button>
+                        <button class="btn btn-primary" onclick="changePassword()">Change Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="active screen" id="profile-screen">
+            <div class="header">
+                <div>
+                    <div class="header-title">Settings</div>
+                    <div class="header-subtitle">Manage your account and app preferences</div>
+                </div>
+                <div class="header-icons">
+                   <button class="icon-btn" onclick="toggleSearch(true)">🔍</button>
+                    <button class="icon-btn has-notifications" onclick="toggleNotifications(true)">🔔</button>
+                    <span class="date-text">Tuesday, September 27, 2025</span>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-screen="profile-screen" onclick="showScreen('profile-screen', this)">Profile</div>
+                <div class="tab" data-screen="notifications-screen" onclick="showScreen('notifications-screen', this)">Notifications</div>
+                <div class="tab" data-screen="privacy-screen" onclick="showScreen('privacy-screen', this)">Privacy</div>
+            </div>
+
+            <div class="content">
+                <div class="profile-section">
+                    <div class="profile-left">
+                        <div class="section">
+                            <h2 style="margin-bottom: 24px; font-size: 16px; font-weight: 600;">Profile Information</h2>
+                            
+                            <div class="profile-header">
+                                <div class="profile-avatar">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt="Profile">
+                                    <button class="change-photo-btn">Camera</button>
+                                </div>
+                                <div>
+                                    <div class="profile-name">John Doe</div>
+                                    <div class="profile-member">Member since August 2025</div>
+                                    <button class="btn btn-secondary" style="margin-top: 8px; padding: 6px 12px; font-size: 12px;">Change photo</button>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-input" value="John">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-input" value="Doe">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" value="JohnDoe@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Bio</label>
+                                <textarea class="form-input" rows="3" placeholder="Tell us about yourself..."></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="btn btn-secondary">Cancel</button>
+                                <button class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-right">
+                        <div class="section">
+                            <h2 style="margin-bottom: 24px; font-size: 16px; font-weight: 600;">Preferences</h2>
+                            
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">Dark Mode</h3>
+                                    <p style="font-size: 12px; color: #666;">Switch to dark theme</p>
+                                </div>
+                                <div class="toggle" onclick="toggleSwitch(this)"></div>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">Start of Week</h3>
+                                    <p style="font-size: 12px; color: #666;">Choose your preferred week start day</p>
+                                </div>
+                                <select class="select-input">
+                                    <option>Sunday</option>
+                                    <option>Saturday</option>
+                                    <option>Friday</option>
+                                    <option>Thursday</option>
+                                    <option>Wednesday</option>
+                                    <option>Tuesday</option>
+                                    <option>Monday</option>
+                                </select>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">Change Password</h3>
+                                    <p style="font-size: 12px; color: #666;">You can change your password here</p>
+                                </div>
+                                <button class="btn btn-secondary" onclick="showScreen('password-screen', document.querySelector('.tabs .tab[data-screen=\'profile-screen\']'))">Change Password</button>
+                            </div>
+                        </div>
+
+                        <div class="danger-zone">
+                            <div class="danger-zone-title">Danger Zone</div>
+                            
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">Export Data</h3>
+                                    <p style="font-size: 12px; color: #666;">Download all your habit data</p>
+                                </div>
+                                <button class="btn btn-secondary">Export</button>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">Delete Account</h3>
+                                    <p style="font-size: 12px; color: #666;">Permanently delete your account and all data</p>
+                                </div>
+                                <button class="btn btn-danger">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="notifications-screen">
+            <div class="header">
+                <div>
+                    <div class="header-title">Settings</div>
+                    <div class="header-subtitle">Manage your account and app preferences</div>
+                </div>
+                <div class="header-icons">
+                    <button class="icon-btn" onclick="toggleSearch(true)">🔍</button>
+                    <button class="icon-btn has-notifications" onclick="toggleNotifications(true)">🔔</button>
+                    <span class="date-text">Tuesday, September 27, 2025</span>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab" data-screen="profile-screen" onclick="showScreen('profile-screen', this)">Profile</div>
+                <div class="tab active" data-screen="notifications-screen" onclick="showScreen('notifications-screen', this)">Notifications</div>
+                <div class="tab" data-screen="privacy-screen" onclick="showScreen('privacy-screen', this)">Privacy</div>
+            </div>
+
+            <div class="content">
+                <div class="notification-settings">
+                    <div class="notification-list">
+                        <div class="section">
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 500; margin-bottom: 4px;">Push Notifications</h3>
+                                    <p style="font-size: 13px; color: #666;">Get notified about your habits and progress</p>
+                                </div>
+                                <div class="toggle active" onclick="toggleSwitch(this)"></div>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 500; margin-bottom: 4px;">Daily Reminders</h3>
+                                    <p style="font-size: 13px; color: #666;">Remind me to complete my daily habits</p>
+                                </div>
+                                <div class="toggle active" onclick="toggleSwitch(this)"></div>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 500; margin-bottom: 4px;">Streak Celebrations</h3>
+                                    <p style="font-size: 13px; color: #666;">Celebrate when you reach streak milestones</p>
+                                </div>
+                                <div class="toggle active" onclick="toggleSwitch(this)"></div>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 500; margin-bottom: 4px;">Weekly Reports</h3>
+                                    <p style="font-size: 13px; color: #666;">Get weekly progress summaries</p>
+                                </div>
+                                <div class="toggle" onclick="toggleSwitch(this)"></div>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 500; margin-bottom: 4px;">Motivational Quotes</h3>
+                                    <p style="font-size: 13px; color: #666;">Receive daily inspirational messages</p>
+                                </div>
+                                <div class="toggle active" onclick="toggleSwitch(this)"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-timing">
+                        <div class="section">
+                            <h2 style="margin-bottom: 24px; font-size: 16px; font-weight: 600;">Notification Timing</h2>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Global Reminder Time (Daily Reminders)</label>
+                                <input type="time" class="form-input" value="09:00">
+                                <p style="font-size: 12px; color: #666; margin-top: 8px;">Habits without a specific time will use this.</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Quiet Hours</label>
+                                <div class="time-range">
+                                    <input type="time" class="form-input" style="width: 120px;" value="22:00">
+                                    <span>to</span>
+                                    <input type="time" class="form-input" style="width: 120px;" value="07:00">
+                                </div>
+                                <p style="font-size: 12px; color: #666; margin-top: 8px;">Silence all notifications during this period.</p>
+                            </div>
+
+
+                            <div class="form-actions">
+                                <button class="btn btn-primary">Save Changes</button>
+                                <button class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/settings.js"></script>
+</body>
+</html>

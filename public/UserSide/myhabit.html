@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum - My Habits</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/myhabit.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </div>
+            <span class="logo-text">MOMENTUM</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="myhabit.html" class="nav-link active">
+                    <span class="nav-icon">☑️</span>
+                    <span>Habits</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="calendar.html" class="nav-link">
+                    <span class="nav-icon">📅</span>
+                    <span>Calendar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="user-profile">
+            <div class="user-avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23e8744f'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.35em' fill='white' font-size='40' font-family='Arial' font-weight='bold'%3EJD%3C/text%3E%3C/svg%3E" alt="John Doe">
+            </div>
+            <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <div class="user-role">Student</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>My Habits</h1>
+                <p>Add update to your habits or add a new one.</p>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="search-icon">🔍</button>
+                <button class="icon-btn" id="notify-icon">🔔</button>
+                <span class="date-text"></span>
+            </div>
+        </header>
+
+        <div class="habits-content">
+            <div class="habits-header">
+                <a href="myhabitadd.html" class="add-habit-link">
+                    ➕ Add Habit
+                </a>
+            </div>
+            
+            <div id="habitsContainer">
+                <!-- Habits will be loaded here dynamically -->
+            </div>
+        </div>
+    </main>
+    <script src="js/myhabit.js"></script>
+    
+</body>
+</html>

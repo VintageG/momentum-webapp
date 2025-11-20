@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum - Dashboard</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </div>
+            <span class="logo-text">MOMENTUM</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link active">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="myhabit.html" class="nav-link">
+                    <span class="nav-icon">☑️</span>
+                    <span>Habits</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="calendar.html" class="nav-link">
+                    <span class="nav-icon">📅</span>
+                    <span>Calendar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="user-profile">
+            <div class="user-avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23e8744f'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.35em' fill='white' font-size='40' font-family='Arial' font-weight='bold'%3EJD%3C/text%3E%3C/svg%3E" alt="John Doe">
+            </div>
+            <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <div class="user-role">Student</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-title">
+                <h1>Dashboard</h1>
+                <p>Track your habits and capture your thoughts</p>
+            </div>
+            <div class="header-actions">
+                <input type="text" class="search-input" placeholder="Search habits, notes...">
+                <button class="icon-btn" id="search-icon">🔍</button>
+                <button class="icon-btn" id="notify-icon">🔔</button>
+                <span class="date-text"></span>
+            </div>
+            <div class="notifications-dropdown" id="notifications">
+                <ul>
+                    <li class="notification-item">Reminder: Complete your daily meditation<span class="notification-time">5 min ago</span></li>
+                    <li class="notification-item">New note added successfully<span class="notification-time">1 hour ago</span></li>
+                    <li class="notification-item">Streak alert: 13 days of exercise!<span class="notification-time">Yesterday</span></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Active Habits</h3>
+                        <div class="stat-value">8</div>
+                    </div>
+                    <div class="stat-icon green">☰</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Completion Rate</h3>
+                        <div class="stat-value">87%</div>
+                    </div>
+                    <div class="stat-icon blue">📈</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Current Streak</h3>
+                        <div class="stat-value">12 days</div>
+                    </div>
+                    <div class="stat-icon orange">🔥</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Notes</h3>
+                        <div class="stat-value">23</div>
+                    </div>
+                    <div class="stat-icon purple">📝</div>
+                </div>
+            </div>
+
+            <div class="main-grid">
+                <div class="card monthly-calendar">
+                    <div class="card-header">
+                        <h2 class="card-title">November 2025</h2>
+                        <div class="calendar-nav">
+                            <button>‹</button>
+                            <button>›</button>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <div class="calendar-day">S</div>
+                            <div class="calendar-day">M</div>
+                            <div class="calendar-day">T</div>
+                            <div class="calendar-day">W</div>
+                            <div class="calendar-day">T</div>
+                            <div class="calendar-day">F</div>
+                            <div class="calendar-day">S</div>
+                        </div>
+                        <div class="calendar-grid"></div>
+                    </div>
+
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot completed"></div>
+                            <span>Completed</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot today"></div>
+                            <span>Today</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card habits-section">
+                    <div class="card-header">
+                        <h2 class="card-title">Today's Habits</h2>
+                    </div>
+                    <div class="habit-status">8 of 12 completed</div>
+
+                    <div class="habits-list">
+                        <div class="habit-item completed">
+                            <div class="habit-checkbox">✓</div>
+                            <div class="habit-info">
+                                <div class="habit-name">Morning Exercise</div>
+                                <div class="habit-desc">30 minutes workout</div>
+                            </div>
+                            <div class="habit-action">Completed</div>
+                        </div>
+
+                        <div class="habit-item">
+                            <div class="habit-checkbox"></div>
+                            <div class="habit-info">
+                                <div class="habit-name">Read for 20 minutes</div>
+                                <div class="habit-desc">Daily reading habit</div>
+                            </div>
+                            <div class="habit-action">Mark Done</div>
+                        </div>
+
+                        <div class="habit-item completed">
+                            <div class="habit-checkbox">✓</div>
+                            <div class="habit-info">
+                                <div class="habit-name">Drink 8 glasses of water</div>
+                                <div class="habit-desc">Stay hydrated</div>
+                            </div>
+                            <div class="habit-action">Completed</div>
+                        </div>
+
+                        <div class="habit-item">
+                            <div class="habit-checkbox"></div>
+                            <div class="habit-info">
+                                <div class="habit-name">Meditation</div>
+                                <div class="habit-desc">10 minutes mindfulness</div>
+                            </div>
+                            <div class="habit-action">Mark Done</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card notes-section">
+                    <div class="card-header">
+                        <h2 class="card-title">Quick Notes</h2>
+                        <button class="add-btn">+</button>
+                    </div>
+
+                    <textarea class="note-input" placeholder="What's on your mind?"></textarea>
+                    <div class="note-toolbar">
+                        <div class="toolbar-buttons">
+                            <button class="toolbar-btn">B</button>
+                            <button class="toolbar-btn">I</button>
+                            <button class="toolbar-btn">≡</button>
+                        </div>
+                        <button class="save-btn">Save</button>
+                    </div>
+
+                    <div class="notes-list">
+                        <div class="note-item">
+                            <div class="note-text">Feeling great about my meditation streak! The 10-minute sessions are really helping me start each day with clarity and focus.</div>
+                            <div class="note-footer">
+                                <div class="note-time">Today at 7:35 AM</div>
+                                <div class="note-actions">
+                                    <button>✏️</button>
+                                    <button>🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="note-item">
+                            <div class="note-text">Need to remember to drink more water throughout the day. Setting phone reminders every 2 hours.</div>
+                            <div class="note-footer">
+                                <div class="note-time">Yesterday at 2:15 PM</div>
+                                <div class="note-actions">
+                                    <button>✏️</button>
+                                    <button>🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="note-item">
+                            <div class="note-text">Morning workout felt amazing! Increased my running time by 5 minutes. Body is getting stronger each day.</div>
+                            <div class="note-footer">
+                                <div class="note-time">3 days ago</div>
+                                <div class="note-actions">
+                                    <button>✏️</button>
+                                    <button>🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-card">
+                        <div class="quote-icon">"</div>
+                        <div class="quote-text">"Success is the sum of small efforts repeated day in and day out."</div>
+                        <div class="quote-author">— Robert Collier</div>
+                    </div>
+                </div>
+
+                <div class="card year-calendar">
+                    <h2 class="card-title">2025 Overview</h2>
+                    <div class="year-grid">
+                        <div class="month-mini">
+                            <div class="month-label">Jan</div>
+                            <div class="month-days" id="jan"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Feb</div>
+                            <div class="month-days" id="feb"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Mar</div>
+                            <div class="month-days" id="mar"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Apr</div>
+                            <div class="month-days" id="apr"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">May</div>
+                            <div class="month-days" id="may"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Jun</div>
+                            <div class="month-days" id="jun"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Jul</div>
+                            <div class="month-days" id="jul"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Aug</div>
+                            <div class="month-days" id="aug"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Sep</div>
+                            <div class="month-days" id="sep"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Oct</div>
+                            <div class="month-days" id="oct"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Nov</div>
+                            <div class="month-days" id="nov"></div>
+                        </div>
+                        <div class="month-mini">
+                            <div class="month-label">Dec</div>
+                            <div class="month-days" id="dec"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
